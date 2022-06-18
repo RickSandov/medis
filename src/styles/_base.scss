@@ -1,0 +1,69 @@
+@use "./colors";
+@use "./abstracts/mixins";
+@use "./abstracts/variables";
+@import 'fonts';
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-size: 62.5%; // 1rem == 10px
+
+    @include mixins.respond(tab-port) {
+        font-size: 50%; // 1rem == 8px
+    }
+
+    @include mixins.respond(tab-land) {
+        font-size: 56.25%; // 1rem == 9px
+    }
+
+    @include mixins.respond(big-desk) {
+        font-size: 75%; // 1rem == 12px, 12/16
+    }
+
+
+
+    font-family: variables.$font-body;
+    ;
+    scroll-behavior: smooth;
+    @include mixins.scrollBar(5px);
+}
+
+// html {
+//     box-sizing: border-box;
+//     padding: 0;
+//     margin: 0;
+// }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: variables.$font-titles;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+p,
+span,
+a {
+    font-size: 1.8rem;
+}
+
+
+a {
+    text-decoration: none;
+}
