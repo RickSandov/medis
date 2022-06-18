@@ -36,14 +36,14 @@ export const Appointment = () => {
         },
     });
     // console.log(data)
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e) => {
         setValue(e.target.value);
     };
-    const handleChangeMed = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeMed = (e) => {
         setValueMed(e.target.value);
     };
 
-    const handleChangeDiag = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleChangeDiag = (e) => {
         setDiagnostic(e.target.value);
     };
 
