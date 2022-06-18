@@ -41,7 +41,7 @@ export const PatientData = () => {
 
     const handleSendData = (values: InitialValues) => {
         console.log(values);
-        router.push("/perfilPaciente");
+        router.push("/perfil");
     };
 
     return (
