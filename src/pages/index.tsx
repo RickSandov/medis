@@ -1,9 +1,6 @@
-import { TestRedux } from 'components/testRedux'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import { Provider } from 'react-redux'
-import { store } from 'store/store'
-import styles from '../styles/Home.module.scss'
+import type { NextPage } from "next";
+import Head from "next/head";
+import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
   return (
@@ -14,12 +11,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Provider store={store}>
-        <TestRedux/>
-      </Provider>
-
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

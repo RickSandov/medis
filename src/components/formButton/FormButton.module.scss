@@ -1,0 +1,12 @@
+@use '../../styles/abstracts/mixins';
+@use '../../styles/colors';
+
+.button {
+    @include mixins.largeButton;
+    background-color: colors.$primary;
+    margin-top: 3rem;
+
+    @include mixins.hover {
+        background-color: darken(colors.$primary, 10%);
+    }
+}

@@ -1,5 +1,6 @@
 @use '../colors'as *;
 @use './variables'as *;
+@use '../animations'as *;
 
 @mixin transition {
     transition: $transition;
@@ -66,6 +67,64 @@
 
         &:hover {
             background-color: $primary-dark;
+        }
+    }
+}
+
+
+@mixin boxShadow {
+    box-shadow: 0 0 2.5rem 1rem rgba($primary-dark, .3);
+}
+
+@mixin card {
+    background-color: $color-white;
+    border-radius: $box-border-radius;
+    @include boxShadow;
+    padding: 4rem;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin button {
+    background-color: $primary;
+    border-radius: $input-border-radius;
+    color: $color-white;
+    font-size: $input-font-size;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    @include transition;
+}
+
+@mixin largeButton {
+    @include button;
+    width: 100%;
+}
+
+@mixin input {
+    border-radius: $input-border-radius;
+    padding: 1rem 2rem;
+    text-align: left;
+    // width: 100%;
+    border: 1px solid transparent;
+    @include transition;
+    margin-bottom: .5rem;
+
+    &+span {
+        display: block;
+        color: red;
+        width: 100%;
+        font-size: $small-text-font-size;
+        animation: slideInLeft .4s ease-in-out;
+    }
+
+}
+
+@mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
         }
     }
 }

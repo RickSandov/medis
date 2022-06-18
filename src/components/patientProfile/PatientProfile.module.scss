@@ -1,0 +1,46 @@
+@use '../../styles/colors';
+@use '../../styles/abstracts/mixins';
+@use '../../styles/abstracts/variables';
+
+.container {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 3rem;
+    position: relative;
+
+    & h1 {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 3rem;
+    }
+}
+
+.button {
+    @include mixins.largeButton;
+    background-color: colors.$primary;
+    margin-top: 3rem;
+
+    @include mixins.hover {
+        background-color: darken(colors.$primary, 10%);
+    }
+}
+
+.item {
+    margin-top: 2rem;
+
+    & h3 {
+        color: colors.$primary;
+    }
+
+    & span {
+        padding: 1rem 2rem;
+        background-color: colors.$bc-dark;
+        border-radius: variables.$input-border-radius;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & p {}
+}

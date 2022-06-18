@@ -1,0 +1,62 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "setter",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "name": "DataChange",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_x",
+        "type": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor",
+    "name": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_x",
+        "type": "string"
+      }
+    ],
+    "name": "set",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "reset",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "storedData",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

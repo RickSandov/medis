@@ -1,0 +1,10 @@
+@use '../../styles/abstracts/mixins';
+
+.card {
+    @include mixins.card;
+    min-height: 80vh;
+    // width: 450px;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
