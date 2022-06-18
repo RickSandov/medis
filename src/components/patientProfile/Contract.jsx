@@ -7,7 +7,9 @@ export const Contract = ({ data }) => {
     //         diagnostic: diagnostic,
     console.log(data)
     return (
-        <div>
+        <div style={{
+            marginTop: '3rem',
+        }}>
             <h1>Información de visita</h1>
             <div className={styles.item} >
                 <h3>

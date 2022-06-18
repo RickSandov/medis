@@ -21,7 +21,7 @@ export const authStartLogin = (userData: UserFormData) => {
                 name: 'Rikiki',
                 userId: '123',
             }));
-        }, 4000);
+        }, 2000);
     }
 }
 export const authStartLogout = () => {

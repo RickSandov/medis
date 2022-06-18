@@ -24,7 +24,9 @@ export const PatientProfile = () => {
             <div className={styles.card}>
                 <Card>
                     <h1>Ver recetas médicas</h1>
-                    <p>
+                    <p style={{
+                        textAlign: "center",
+                    }}>
                         {
                             data ?
                                 isLoading ? "Cargando..." : "Recetas obtenidas con éxito"

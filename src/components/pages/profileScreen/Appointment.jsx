@@ -3,6 +3,8 @@ import { useMemo, useState } from "react";
 import { FormButton } from "../../formButton/FormButton";
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import abi from "contracts/abi.json";
+import { useRouter } from "next/router";
+import Swal from "sweetalert2";
 
 export const Appointment = () => {
     const [value, setValue] = useState("");
@@ -10,7 +12,7 @@ export const Appointment = () => {
     const [symps, setSymps] = useState([]);
     const [meds, setMeds] = useState([]);
     const [valueMed, setValueMed] = useState("");
-
+    const router = useRouter();
     const info = useMemo(
         () => ({
             sympthoms: symps,
@@ -27,7 +29,7 @@ export const Appointment = () => {
     const connectWallet = async () => {
         await enableWeb3();
     };
-    const { runContractFunction, data, error } = useWeb3Contract({
+    const { runContractFunction, data, error, isLoading } = useWeb3Contract({
         abi,
         contractAddress: "0xaB2b5534612E83F5ae5348ddEF89e5880110a2D3",
         functionName: "set",
@@ -72,6 +74,18 @@ export const Appointment = () => {
         newSymps.splice(index, 1);
         setMeds(newSymps);
     };
+
+    const handleCreateReceipt = async () => {
+        await runContractFunction();
+        if (!isLoading) {
+            Swal.fire({
+                title: '¡Exito!',
+                text: 'Se ha generado la receta',
+                icon: 'success',
+            })
+            router.push("/contrato");
+        }
+    }
 
     return (
         <div className={styles.appointment}>
@@ -123,7 +137,7 @@ export const Appointment = () => {
                         </span>
                     ))}
                 </div>
-                <button className={styles.button} onClick={isWeb3Enabled ? runContractFunction : connectWallet}>
+                <button className={styles.button} onClick={isWeb3Enabled ? handleCreateReceipt : connectWallet}>
                     {isWeb3Enabled ? "Registrar cita" : "Conectar a la cartera"}
                 </button>
             </div>
