@@ -21,8 +21,8 @@ export const Allergies = () => {
         }
     };
 
-    const handleDeleteAllergie = (allergie: string) => {
-        helpers.setValue(field.value.filter((item: string) => item !== allergie));
+    const handleDeleteAllergie = (allergie) => {
+        helpers.setValue(field.value.filter((item) => item !== allergie));
     };
 
     return (
@@ -41,7 +41,7 @@ export const Allergies = () => {
             </div>
             <div className={styles.allergiesContainer}>
                 <AnimatePresence>
-                    {field.value.map((allergie: string, index: number) => (
+                    {field.value.map((allergie, index) => (
                         <motion.span
                             exit={{
                                 opacity: 0,
