@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 import { Field, useField } from "formik";
 import styles from "./Input.module.scss";
 import { AnimatePresence, motion } from 'framer-motion';
 import 'animate.css';
 
-export const Allergies = ({ id }) => {
+export const Allergies = () => {
+
+    const id = useId();
+
     const [field, _, helpers] = useField("allergies");
     const [activeAllergie, setActiveAllergie] = useState("");
     const handleAllergiesChange = ({ target }) => {
@@ -27,6 +30,7 @@ export const Allergies = ({ id }) => {
             <div className={styles.input} >
                 <label htmlFor={id}>Alergias</label>
                 <input
+                    id={id}
                     name="activeAllergie"
                     type="text"
                     placeholder="Agregar alergia..."
