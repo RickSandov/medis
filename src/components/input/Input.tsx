@@ -25,7 +25,7 @@ export const Input: FC<Props> = ({
         return (
             <div className={styles.loginInput}>
                 <Field name={name} type={type} placeholder={placeholder} />
-                <ErrorMessage name={name} render={(msg) => <span>{msg}</span>} />
+                <ErrorMessage name={name || ''} render={(msg) => <span>{msg}</span>} />
             </div>
         );
 
@@ -35,7 +35,7 @@ export const Input: FC<Props> = ({
         <div className={styles.input}>
             <label htmlFor={id}>{label}</label>
             <Field name={name} type={type} placeholder={placeholder} />
-            <ErrorMessage name={name} render={(msg) => <span>{msg}</span>} />
+            <ErrorMessage name={name || ''} render={(msg) => <span>{msg}</span>} />
         </div>
     );
 };

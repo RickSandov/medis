@@ -16,6 +16,6 @@
     "incremental": true,
     "baseUrl": "./src",
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/input/Allergies.jsx", "src/components/pages/profileScreen/Appointment.jsx", "src/components/patientProfile/PatientProfile.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/patientProfile/Contract.jsx", "src/components/input/Allergies.jsx", "src/components/pages/profileScreen/Appointment.jsx", "src/components/patientProfile/PatientProfile.jsx"],
   "exclude": ["node_modules"]
 }
