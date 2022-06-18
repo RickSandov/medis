@@ -8,9 +8,9 @@ import Swal from "sweetalert2";
 
 export const Appointment = () => {
     const [value, setValue] = useState("");
-    const [diagnostic, setDiagnostic] = useState("");
-    const [symps, setSymps] = useState([]);
-    const [meds, setMeds] = useState([]);
+    const [diagnostic, setDiagnostic] = useState("El paciente manifiesta sintomas de COVID con fiebre de 39.8 grados.");
+    const [symps, setSymps] = useState(["Fiebre", "Dolor de cabeza", "Tos"]);
+    const [meds, setMeds] = useState(["Naproxeno"]);
     const [valueMed, setValueMed] = useState("");
     const router = useRouter();
     const info = useMemo(

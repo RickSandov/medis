@@ -20,7 +20,7 @@ export const ProfileScreen = () => {
                         <p>Nombre completo: <strong>Ángel Eduardo Cruz García</strong></p>
                         <p>Edad: <strong>21 años</strong></p>
                         <div>
-                            <p>Alergias: </p>
+                            <p>Alergias: <strong>paracetamol, polen, ibuprofeno.</strong></p>
 
                         </div>
                     </div>

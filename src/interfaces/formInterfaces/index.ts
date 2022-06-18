@@ -4,12 +4,13 @@ export type InitialValues =
       password: string;
     }
   | {
-      fullName: "";
-      curp: "";
-      birthGender: "";
-      birthDate: "";
-      birthCountry: "";
-      birthState: "";
-      residenceCountry: "";
-      allergies: [];
+      fullName: string;
+      curp: string;
+      birthGender: string;
+      birthDate: string;
+      birthCountry: string;
+      birthState: string;
+      residenceCountry: string;
+      allergies: string[];
     };
+

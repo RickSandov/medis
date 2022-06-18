@@ -12,7 +12,7 @@ export const Form = () => {
             <Input label="Estado de nacimiento" name="birthState" type="text" placeholder="Estado de nacimiento" />
             <Input label="País de residencia" name="residenceCountry" type="text" placeholder="País de residencia" />
             <Input label="Sexo" name="birthGender" type="text" placeholder="Sexo" />
-            <Input allergies />
+            <Input allergies/>
             <FormButton label="Confirmar información" />
         </>
     );

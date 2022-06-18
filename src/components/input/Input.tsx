@@ -29,7 +29,7 @@ export const Input: FC<Props> = ({
             </div>
         );
 
-    if (allergies) return <Allergies />;
+    if (allergies) return <Allergies  />;
 
     return (
         <div className={styles.input}>

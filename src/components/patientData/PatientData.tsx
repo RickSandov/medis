@@ -13,14 +13,14 @@ export const PatientData = () => {
     const router = useRouter();
 
     const formData: InitialValues = {
-        fullName: "",
-        curp: "",
-        birthGender: "",
-        birthDate: "",
-        birthCountry: "",
-        birthState: "",
-        residenceCountry: "",
-        allergies: [],
+        fullName: "Ángel Eduardo Cruz García",
+        curp: "CUGA010714HDGRRNA3",
+        birthGender: "Masculino",
+        birthDate: "14 de julio del 2001",
+        birthCountry: "Mexico",
+        birthState: "Durango",
+        residenceCountry: "Durango, dgo.",
+        allergies: ["Paracetamol", "Polen", "Ibuprofeno"],
     };
 
     const formSchema = Yup.object().shape({
