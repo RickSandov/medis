@@ -1,6 +1,8 @@
+import { TestRedux } from 'components/testRedux'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import { Provider } from 'react-redux'
+import { store } from 'store/store'
 import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
@@ -12,7 +14,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Holi</h1>
+      <Provider store={store}>
+        <TestRedux/>
+      </Provider>
 
     </div>
   )
