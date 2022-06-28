@@ -12,4 +12,9 @@ export type InitialValues =
       birthState: "";
       residenceCountry: "";
       allergies: [];
+    }
+  | {
+      email: string;
+      password: string;
+      password2: string;
     };
