@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { PatientPersonalForm } from "components";
+import { PatientMedicalForm, PatientPersonalForm } from "components";
 
 import styles from "./SectionsBar.module.scss";
 export const SectionsBar = ({ sections }: { sections: string[] }) => {
@@ -21,7 +21,9 @@ export const SectionsBar = ({ sections }: { sections: string[] }) => {
       </div>
       {/* {activeNav == sections[0] ? ( */}
       <div className={styles.sectionContent}>
-        <PatientPersonalForm />
+        <PatientMedicalForm />
+
+
       </div>
       {/* ) : (
         ""

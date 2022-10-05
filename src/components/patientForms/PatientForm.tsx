@@ -4,7 +4,7 @@ import { InitialValues } from "interfaces";
 import { typesRegex } from "types";
 import { useRouter } from "next/router";
 import { Input, FormButton, FormikForm } from "components";
-import { PersonalForm } from "./Forms";
+import { MedicalForm, PersonalForm } from "./Forms";
 
 export const PatientPersonalForm = () => {
   const router = useRouter();
@@ -48,6 +48,39 @@ export const PatientPersonalForm = () => {
       onSubmit={handleSendData}
     >
       <PersonalForm />
+    </FormikForm>
+  );
+};
+
+export const PatientMedicalForm = () => {
+  const formData: InitialValues = {
+    diabetes: true,
+    hypertension: true,
+    heartDisease: true,
+    kidneyDisease: true,
+    lungDisease: true,
+    cancer: true,
+    asthma: true,
+    obesity: true,
+    depression: true,
+    anxiety: true,
+    other: true,
+    allergies: ["Paracetamol", "Polen", "Ibuprofeno"],
+  };
+
+  const formSchema = Yup.object().shape({});
+
+  const handleSendData = (values: InitialValues) => {
+    console.log(values);
+  };
+
+  return (
+    <FormikForm
+      initialValues={formData}
+      validationSchema={formSchema}
+      onSubmit={handleSendData}
+    >
+      <MedicalForm />
     </FormikForm>
   );
 };

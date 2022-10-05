@@ -1,4 +1,4 @@
-@use '../../styles/abstracts/mixins';
+@use "../../styles/abstracts/mixins";
 
 .card {
     @include mixins.card;

@@ -1,0 +1,58 @@
+@use "../../styles/colors" as colors;
+.conditionsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    margin: 1rem 0;
+}
+
+.radioContainer {
+    display: flex;
+    gap: 3rem;
+}
+.condition {
+    display: flex;
+
+}
+
+.medicineContainer {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    div {
+        width: 30%;
+    }
+}
+.deleteButton {
+    color: colors.$color-white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 10%;
+    height: 5rem;
+    margin-bottom: 1.6rem;
+
+    background-color: red;
+    &:hover {
+        color: colors.$color-white;
+    }
+}
+.plusIcon {
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    background-color: transparent;
+    border: 1px solid colors.$primary;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem auto 2rem auto;
+
+    &:hover {
+        background-color: colors.$primary-dark;
+        color: colors.$color-white;
+        transition: all 0.3s ease-in-out;
+    }
+}
