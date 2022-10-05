@@ -10,3 +10,4 @@ export * from "./profilePicture";
 export * from "./sectionsBar";
 export * from "./patientForms";
 export * from "./icons";
+export * from "./consultation";
