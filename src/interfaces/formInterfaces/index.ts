@@ -12,19 +12,32 @@ export type InitialValues =
       birthCountry: string;
       birthState: string;
       residenceCountry: string;
-      allergies: string[];
-    }
-  | {
-      // Medical Form
-      diabetes: boolean;
-      hypertension: boolean;
-      heartDisease: boolean;
-      kidneyDisease: boolean;
-      lungDisease: boolean;
-      cancer: boolean;
-      asthma: boolean;
-      obesity: boolean;
-      depression: boolean;
-      anxiety: boolean;
-      other: boolean;
     };
+
+export type MedicalInitialValues = {
+  // Medical Form
+  diabetes: boolean;
+  hypertension: boolean;
+  heartDisease: boolean;
+  kidneyDisease: boolean;
+  lungDisease: boolean;
+  cancer: boolean;
+  asthma: boolean;
+  obesity: boolean;
+  depression: boolean;
+  anxiety: boolean;
+  weight: number;
+  height: number;
+  bloodType: string;
+  visionProblems: boolean;
+  hearingProblems: boolean;
+  medicines: medicines[];
+  allergies: string[];
+};
+
+interface medicines {
+  id: number;
+  name: string;
+  dose: string;
+  frequency: string;
+}

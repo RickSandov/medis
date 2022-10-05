@@ -14,6 +14,7 @@ export const SectionsBar = ({ sections }: { sections: string[] }) => {
               activeNav == section ? styles.active : ""
             }`}
             onClick={() => setActiveNav(section)}
+            key={index}
           >
             <h3>{section}</h3>
           </div>
@@ -22,8 +23,6 @@ export const SectionsBar = ({ sections }: { sections: string[] }) => {
       {/* {activeNav == sections[0] ? ( */}
       <div className={styles.sectionContent}>
         <PatientMedicalForm />
-
-
       </div>
       {/* ) : (
         ""

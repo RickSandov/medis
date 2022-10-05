@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input, FormButton, AddMedis } from "components";
-import { Field } from "formik";
+import { Field, useField } from "formik";
 import styles from "./Forms.module.scss";
 import { Card } from "../card/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,33 +42,48 @@ export const MedicalForm = () => {
       label: "Enfermedad hepática",
       specify: ["Cirrosis", "Hepatitis", "Hepatopatía"],
     },
-    {
-      name: "other",
-      label: "Otra",
-      specify: [],
-    },
   ];
+
+  const [fieldMedicines, metaMedicines, helpers] = useField("medicines");
+
+  const [fieldAllergies, metaAllergies] = useField("allergies");
 
   const [medicineList, setmedicineList] = useState<
     {
       id: number | null;
-      name: string;
-      dose: string;
-      frequency: string;
+      name: string | null;
+      dose: string | null;
+      frequency: string | null;
     }[]
-  >([]);
+  >(fieldMedicines.value);
 
   const handleAddMedicine = () => {
     setmedicineList([
       ...medicineList,
       {
-        id: medicineList.length + 1,
-        name: "",
-        dose: "",
-        frequency: "",
+        id: medicineList.length,
+        name: null,
+        dose: null,
+        frequency: null,
+      },
+    ]);
+
+    helpers.setValue([
+      ...fieldMedicines.value,
+      {
+        id: medicineList.length,
+        name: null,
+        dose: null,
+
+        frequency: null,
       },
     ]);
   };
+
+  // useEffect(() => {
+  //   helpers.setValue(medicineList);
+  // }, [medicineList])
+
   return (
     <>
       <h3>Condiciones de salud</h3>
@@ -88,15 +103,35 @@ export const MedicalForm = () => {
         ))}
       </div>
 
+      <h3>Datos basicos</h3>
+      <Input
+        name="weight"
+        label="Peso"
+        type="number"
+        placeholder="Peso en kg"
+      />
+      <Input
+        name="height"
+        label="Altura"
+        type="number"
+        placeholder="Altura en cm"
+      />
+      <Input
+        name="bloodType"
+        label="Tipo de sangre"
+        type="text"
+        placeholder="Tipo de sangre"
+      />
+
       <h3>Visión y escucha</h3>
       <p>¿Tiene problemas de visión?</p>
       <div className={styles.radioContainer}>
         <label className={styles.condition}>
-          <Field type="radio" name="vision" value="si" />
+          <Field type="radio" name="visionProblems" value={true} />
           <p>Si</p>
         </label>
         <label className={styles.condition}>
-          <Field type="radio" name="vision" value="no" />
+          <Field type="radio" name="visionProblems" value={false} />
           <p>No</p>
         </label>
       </div>
@@ -104,11 +139,11 @@ export const MedicalForm = () => {
       <p>¿Tiene problemas de audición?</p>
       <div className={styles.radioContainer}>
         <label className={styles.condition}>
-          <Field type="radio" name="hearing" value="si" />
+          <Field type="radio" name="hearingProblems" value={true} />
           <p>Si</p>
         </label>
         <label className={styles.condition}>
-          <Field type="radio" name="hearing" value="no" />
+          <Field type="radio" name="hearingProblems" value={false} />
           <p>No</p>
         </label>
       </div>
@@ -118,18 +153,20 @@ export const MedicalForm = () => {
       <div className="medicineList">
         {medicineList.map(({ id, dose, frequency, name }, index) => (
           <div key={index} className={styles.medicineContainer}>
+            {/* Charge the id to the formik value */}
+
             <Input
-              name={`medicineList[${id}].name`}
+              name={`medicines[${id}].name`}
               label="Nombre"
               placeholder="Nombre del medicamento"
             />
             <Input
-              name={`medicineList[${id}].dose`}
+              name={`medicines[${id}].dose`}
               label="Dosis"
               placeholder="Dosis del medicamento"
             />
             <Input
-              name={`medicineList[${id}].frequency`}
+              name={`medicines[${id}].frequency`}
               label="Frecuencia"
               placeholder="Frecuencia del medicamento"
             />
@@ -140,6 +177,7 @@ export const MedicalForm = () => {
                 const newMedicineList = medicineList.filter(
                   (medicine) => medicine.id !== id
                 );
+                helpers.setValue(newMedicineList);
                 setmedicineList(newMedicineList);
               }}
             >

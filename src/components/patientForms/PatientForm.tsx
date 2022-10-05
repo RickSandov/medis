@@ -1,6 +1,6 @@
 import React from "react";
 import * as Yup from "yup";
-import { InitialValues } from "interfaces";
+import { InitialValues, MedicalInitialValues } from "interfaces";
 import { typesRegex } from "types";
 import { useRouter } from "next/router";
 import { Input, FormButton, FormikForm } from "components";
@@ -17,7 +17,6 @@ export const PatientPersonalForm = () => {
     birthCountry: "Mexico",
     birthState: "Durango",
     residenceCountry: "Durango, dgo.",
-    allergies: ["Paracetamol", "Polen", "Ibuprofeno"],
   };
 
   const formSchema = Yup.object().shape({
@@ -33,7 +32,6 @@ export const PatientPersonalForm = () => {
     residenceCountry: Yup.string().required(
       "El país de residencia es requerido"
     ),
-    allergies: Yup.array().required("Las alergias son requeridas"),
   });
 
   const handleSendData = (values: InitialValues) => {
@@ -53,7 +51,7 @@ export const PatientPersonalForm = () => {
 };
 
 export const PatientMedicalForm = () => {
-  const formData: InitialValues = {
+  const formData: MedicalInitialValues = {
     diabetes: true,
     hypertension: true,
     heartDisease: true,
@@ -64,11 +62,34 @@ export const PatientMedicalForm = () => {
     obesity: true,
     depression: true,
     anxiety: true,
-    other: true,
     allergies: ["Paracetamol", "Polen", "Ibuprofeno"],
+    medicines: [
+      {
+        id: 0,
+        name: "Paracetamol",
+        dose: "500 mg",
+        frequency: "Cada 8 horas",
+      },
+    ],
+    weight: 70,
+    height: 170,
+    bloodType: "O+",
+    visionProblems: true,
+    hearingProblems: true,
   };
 
-  const formSchema = Yup.object().shape({});
+  const formSchema = Yup.object().shape({
+    // allergies: Yup.array().of(Yup.string()).optional(),
+    // medicines: Yup.array().of(
+    //   Yup.object()
+    //     .shape({
+    //       name: Yup.string().required("El nombre es requerido"),
+    //       dose: Yup.string().required("La dosis es requerida"),
+    //       frequency: Yup.string().required("La frecuencia es requerida"),
+    //     })
+    //     .optional()
+    // ),
+  });
 
   const handleSendData = (values: InitialValues) => {
     console.log(values);
@@ -79,6 +100,7 @@ export const PatientMedicalForm = () => {
       initialValues={formData}
       validationSchema={formSchema}
       onSubmit={handleSendData}
+      enableReinitialize={true}
     >
       <MedicalForm />
     </FormikForm>
