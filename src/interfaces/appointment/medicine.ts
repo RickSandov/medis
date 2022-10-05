@@ -1,17 +1,17 @@
 import { IVariableMeasurement } from "./index";
 
-enum AppointmentMedicineUnits {
+export enum AppointmentMedicineUnits {
   mg = "mg",
   uq = "uq",
 }
 
-enum ConsumptionRangeTypes {
+export enum ConsumptionRangeTypes {
   days = "days",
   weeks = "weeks",
   months = "months",
 }
 
-enum AdministrationRoutes {
+export enum AdministrationRoutes {
   oral = "oral",
   ocular = "ocular",
 }
