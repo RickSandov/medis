@@ -1,0 +1,23 @@
+@use "../../styles/colors";
+.sections {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.section {
+    border-bottom: 4px solid colors.$lightGray;
+    color: colors.$lightGray;
+    width: 100%;
+    min-height: 5rem;
+    text-align: center;
+}
+
+
+.active {
+    color: colors.$text-primary;
+    transition: all 0.4s ease-in-out;
+    border-bottom: 4px solid colors.$primary;
+}

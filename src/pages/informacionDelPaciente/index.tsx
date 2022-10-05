@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { PatientData } from "components";
 
 const InformacionDelPaciente: NextPage = () => {
-    return <PatientData />;
+  return <PatientData />;
 };
 
 export default InformacionDelPaciente;

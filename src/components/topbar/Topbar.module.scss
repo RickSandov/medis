@@ -1,0 +1,9 @@
+@use '../../styles/abstracts/mixins';
+@use '../../styles/colors';
+
+.container {
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    background-color: colors.$primary;
+}
