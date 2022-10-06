@@ -1,0 +1,8 @@
+@use '../../styles/abstracts/mixins';
+
+.container {
+    text-align: center;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+}

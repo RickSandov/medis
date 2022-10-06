@@ -3,6 +3,13 @@ export type InitialValues = {
   password: string;
 };
 
+export type SignUpInitialValues = {
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
 export type BasicInitialValues = {
   fullName: string;
   curp: string;
