@@ -3,10 +3,11 @@ import React from "react";
 import { FC } from "react";
 import { BasicInitialValues, InitialValues, MedicalInitialValues } from "interfaces";
 import styles from "./formikForm.module.scss";
+import { IInitialConsultationValues } from "interfaces/appointment";
 
 interface Props {
   children: React.ReactNode;
-  initialValues: InitialValues | MedicalInitialValues | BasicInitialValues;
+  initialValues: InitialValues | MedicalInitialValues | BasicInitialValues | IInitialConsultationValues;
   enableReinitialize?: boolean;
   validationSchema: { [key: string]: any };
   onSubmit: (values: any) => void;

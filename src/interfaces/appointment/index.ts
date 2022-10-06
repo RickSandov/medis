@@ -17,20 +17,20 @@ export interface IVariableMeasurement<t, v> {
   value: v;
 }
 
-enum TemperatureUnits {
+export enum TemperatureUnits {
   c = "celsius",
   f = "farenheight",
 }
-enum WeightUnits {
+export enum WeightUnits {
   kg = "kg",
 }
 
-enum HeightUnits {
+export enum HeightUnits {
   m = "m",
 }
 
 export interface IVitalSigns {
-  bloodPresure: IBloodPressure;
+  bloodPressure: IBloodPressure;
   bloodOxygen: number;
   bpm: number;
   bodyTemperature: IVariableMeasurement<TemperatureUnits, number>;
@@ -53,3 +53,18 @@ export interface IMedicalCosultation {
     date: string;
   };
 }
+
+export interface IInitialConsultationValues {
+  patientStatus: IPatientStatus;
+  symptoms: ISymptoms[];
+  vitalSigns: IVitalSigns;
+  weight: IVariableMeasurement<WeightUnits, number>;
+  height: IVariableMeasurement<HeightUnits, number>;
+  diagnostic: string;
+  prescription: {
+    medicine: IAppointmentMedicine[];
+  };
+}
+
+export * from "./medicine";
+export * from "./patient";

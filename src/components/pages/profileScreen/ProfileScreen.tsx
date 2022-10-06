@@ -21,6 +21,7 @@ export const ProfileScreen = () => {
                         <p>Edad: <strong>21 años</strong></p>
                         <div>
                             <p>Alergias: <strong>paracetamol, polen, ibuprofeno.</strong></p>
+
                         </div>
                     </div>
                     <Appointment />

@@ -9,6 +9,7 @@ interface Props {
   label?: string;
   placeholder?: string;
   name?: string;
+  className?: string;
 }
 
 export const Input: FC<Props> = ({
@@ -18,6 +19,7 @@ export const Input: FC<Props> = ({
   label = "input",
   placeholder,
   name,
+  className
 }) => {
   const id = useId();
 
@@ -32,7 +34,7 @@ export const Input: FC<Props> = ({
   if (allergies) return <Allergies />;
 
   return (
-    <div className={styles.input}>
+    <div className={`${styles.input} ${className}`}>
       <label htmlFor={id}>{label}</label>
       <Field name={name} type={type} placeholder={placeholder} />
       <ErrorMessage name={name || ""} render={(msg) => <span>{msg}</span>} />
