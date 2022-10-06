@@ -6,7 +6,7 @@ import { useFormikContext } from "formik";
 import { Form } from "./Form";
 import { Card } from "components/card";
 import { useAppDispatch } from "hooks/hooks";
-import { authStartLogin } from "actions/auth";
+import { startLogin } from "store/auth/thunks";
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
@@ -27,8 +27,8 @@ export const LoginForm = () => {
   // console.log(values)
   const handleSubmit = (values: FormValues) => {
     console.log(values);
-    dispatch(authStartLogin(values));
-    router.push("/informacionDelPaciente");
+    dispatch(startLogin(values.email, values.password, router));
+    // router.push("/informacionDelPaciente");
   };
 
   return (
@@ -48,7 +48,7 @@ export const LoginForm = () => {
         >
           <Form />
         </FormikForm>
-        <p>Recuperar contraseña</p>
+        {/* <p>Recuperar contraseña</p> */}
       </Card>
     </div>
   );

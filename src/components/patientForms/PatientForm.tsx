@@ -1,15 +1,25 @@
 import React from "react";
 import * as Yup from "yup";
-import { InitialValues, MedicalInitialValues } from "interfaces";
+import {
+  BasicInitialValues,
+  InitialValues,
+  MedicalInitialValues,
+} from "interfaces";
 import { typesRegex } from "types";
 import { useRouter } from "next/router";
 import { Input, FormButton, FormikForm } from "components";
 import { MedicalForm, PersonalForm } from "./Forms";
+import { useAppDispatch } from "../../hooks/hooks";
+import {
+  startUploadMedicalData,
+  startSignUp,
+} from "../../store/patient/thunks";
+import { Dispatch } from "redux";
 
 export const PatientPersonalForm = () => {
   const router = useRouter();
-
-  const formData: InitialValues = {
+  const dispatch = useAppDispatch();
+  const formData: BasicInitialValues = {
     fullName: "Ángel Eduardo Cruz García",
     curp: "CUGA010714HDGRRNA3",
     birthGender: "Masculino",
@@ -17,6 +27,7 @@ export const PatientPersonalForm = () => {
     birthCountry: "Mexico",
     birthState: "Durango",
     residenceCountry: "Durango, dgo.",
+    phoneNumber: "618 123 4567",
   };
 
   const formSchema = Yup.object().shape({
@@ -34,9 +45,9 @@ export const PatientPersonalForm = () => {
     ),
   });
 
-  const handleSendData = (values: InitialValues) => {
+  const handleSendData = (values: BasicInitialValues) => {
     console.log(values);
-    router.push("/perfil");
+    dispatch(startSignUp(values, router));
   };
 
   return (
@@ -51,6 +62,7 @@ export const PatientPersonalForm = () => {
 };
 
 export const PatientMedicalForm = () => {
+  const dispatch = useAppDispatch();
   const formData: MedicalInitialValues = {
     diabetes: true,
     hypertension: true,
@@ -91,8 +103,9 @@ export const PatientMedicalForm = () => {
     // ),
   });
 
-  const handleSendData = (values: InitialValues) => {
+  const handleSendData = (values: MedicalInitialValues) => {
     console.log(values);
+    dispatch(startUploadMedicalData(values));
   };
 
   return (

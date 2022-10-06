@@ -20,14 +20,18 @@ export const SectionsBar = ({ sections }: { sections: string[] }) => {
           </div>
         ))}
       </div>
-      {/* {activeNav == sections[0] ? ( */}
-      <div className={styles.sectionContent}>
-        <PatientMedicalForm />
-      </div>
-      {/* ) : (
-        ""
-      ) */}
-      {/* } */}
+
+      {activeNav == "Información Personal" && (
+        <div className={styles.sectionContent}>
+          <PatientPersonalForm />
+        </div>
+      )}
+
+      {activeNav == "Historial Médico" && (
+        <div className={styles.sectionContent}>
+          <PatientMedicalForm />
+        </div>
+      )}
     </>
   );
 };

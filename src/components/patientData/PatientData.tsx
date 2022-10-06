@@ -14,9 +14,9 @@ export const PatientData = () => {
           personal y medica.
         </p>
 
-        <p className={styles.why}>
+        {/* <p className={styles.why}>
           ¿Para qué y cómo garantizamos la integridad de tu información?
-        </p>
+        </p> */}
       </div>
       <div className={styles.aside}>
         <Card>

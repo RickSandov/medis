@@ -11,3 +11,4 @@ export * from "./sectionsBar";
 export * from "./patientForms";
 export * from "./icons";
 export * from "./consultation";
+export * from "./signup";

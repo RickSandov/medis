@@ -202,7 +202,7 @@ export const MedicalForm = () => {
       <h3>¿Tiene alguna alergia?</h3>
       <Input allergies />
 
-      <FormButton label="Siguiente" />
+      <FormButton label="Subir datos" />
     </>
   );
 };
@@ -228,6 +228,12 @@ export const PersonalForm = () => {
         name="birthCountry"
         type="text"
         placeholder="País de nacimiento"
+      />
+      <Input
+        label="Número de teléfono"
+        name="phoneNumber"
+        type="text"
+        placeholder="Número de teléfono"
       />
       <Input
         label="Estado de nacimiento"

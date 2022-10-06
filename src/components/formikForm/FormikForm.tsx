@@ -1,12 +1,12 @@
 import { Formik, Form, FormikProps } from "formik";
 import React from "react";
 import { FC } from "react";
-import { InitialValues, MedicalInitialValues } from "interfaces";
+import { BasicInitialValues, InitialValues, MedicalInitialValues } from "interfaces";
 import styles from "./formikForm.module.scss";
 
 interface Props {
   children: React.ReactNode;
-  initialValues: InitialValues | MedicalInitialValues;
+  initialValues: InitialValues | MedicalInitialValues | BasicInitialValues;
   enableReinitialize?: boolean;
   validationSchema: { [key: string]: any };
   onSubmit: (values: any) => void;

@@ -1,18 +1,18 @@
-export type InitialValues =
-  | {
-      email: string;
-      password: string;
-    }
-  | {
-      //
-      fullName: string;
-      curp: string;
-      birthGender: string;
-      birthDate: string;
-      birthCountry: string;
-      birthState: string;
-      residenceCountry: string;
-    };
+export type InitialValues = {
+  email: string;
+  password: string;
+};
+
+export type BasicInitialValues = {
+  fullName: string;
+  curp: string;
+  birthGender: string;
+  birthDate: string;
+  birthCountry: string;
+  birthState: string;
+  residenceCountry: string;
+  phoneNumber: string;
+};
 
 export type MedicalInitialValues = {
   // Medical Form
