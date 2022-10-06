@@ -1,11 +1,10 @@
 import * as Yup from "yup";
 import { useRouter } from "next/router";
-import { FormikForm } from "components";
+import { FormikForm, MedisLogo } from "components";
 import styles from "./LoginForm.module.scss";
 import { useFormikContext } from "formik";
 import { Form } from "./Form";
 import { Card } from "components/card";
-import { MedisLogo } from "components";
 import { useAppDispatch } from "hooks/hooks";
 import { startLogin } from "store/auth/thunks";
 
@@ -31,7 +30,7 @@ export const LoginForm = () => {
   return (
     <div className={styles.container}>
       <Card>
-      <div className={styles.logo}>
+        <div className={styles.logo}>
           <MedisLogo />
         </div>
         <h2>Tu salud es lo más importante.</h2>
