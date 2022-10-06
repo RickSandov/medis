@@ -127,11 +127,11 @@ export const MedicalForm = () => {
       <p>¿Tiene problemas de visión?</p>
       <div className={styles.radioContainer}>
         <label className={styles.condition}>
-          <Field type="radio" name="visionProblems" value={true} />
+          <Field type="radio" name="visionProblems" value={"1"} />
           <p>Si</p>
         </label>
         <label className={styles.condition}>
-          <Field type="radio" name="visionProblems" value={false} />
+          <Field type="radio" name="visionProblems" value={"0"} />
           <p>No</p>
         </label>
       </div>
@@ -139,11 +139,11 @@ export const MedicalForm = () => {
       <p>¿Tiene problemas de audición?</p>
       <div className={styles.radioContainer}>
         <label className={styles.condition}>
-          <Field type="radio" name="hearingProblems" value={true} />
+          <Field type="radio" name="hearingProblems" value={"1"} />
           <p>Si</p>
         </label>
         <label className={styles.condition}>
-          <Field type="radio" name="hearingProblems" value={false} />
+          <Field type="radio" name="hearingProblems" value={"0"} />
           <p>No</p>
         </label>
       </div>
@@ -210,12 +210,6 @@ export const MedicalForm = () => {
 export const PersonalForm = () => {
   return (
     <>
-      <Input
-        label="Nombre completo"
-        name="fullName"
-        type="text"
-        placeholder="Nombre completo"
-      />
       <Input label="CURP" name="curp" type="text" placeholder="CURP" />
       <Input
         label="Fecha de nacimiento"

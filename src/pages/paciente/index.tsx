@@ -10,11 +10,7 @@ const PacienteHome: NextPage = () => {
         <Card>
           <ProfilePicture src="/assests/images/profilePicture.jpg" />
           <SectionsBar
-            sections={[
-              "Información Personal",
-              "Historial Médico",
-              "Citas Médicas",
-            ]}
+            sections={["Información Personal", "Historial Médico"]}
           />
         </Card>
       </div>

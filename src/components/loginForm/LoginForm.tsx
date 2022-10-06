@@ -5,12 +5,12 @@ import styles from "./LoginForm.module.scss";
 import { useFormikContext } from "formik";
 import { Form } from "./Form";
 import { Card } from "components/card";
+import { MedisLogo } from "components";
 import { useAppDispatch } from "hooks/hooks";
 import { startLogin } from "store/auth/thunks";
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
-  // Config router
   const router = useRouter();
 
   interface FormValues {
@@ -23,17 +23,17 @@ export const LoginForm = () => {
     password: "",
   };
 
-  // const { values } = useFormikContext();
-  // console.log(values)
   const handleSubmit = (values: FormValues) => {
     console.log(values);
     dispatch(startLogin(values.email, values.password, router));
-    // router.push("/informacionDelPaciente");
   };
 
   return (
     <div className={styles.container}>
       <Card>
+      <div className={styles.logo}>
+          <MedisLogo />
+        </div>
         <h2>Tu salud es lo más importante.</h2>
 
         <FormikForm
@@ -48,7 +48,6 @@ export const LoginForm = () => {
         >
           <Form />
         </FormikForm>
-        {/* <p>Recuperar contraseña</p> */}
       </Card>
     </div>
   );

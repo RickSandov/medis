@@ -1,8 +1,40 @@
-@use '../../styles/abstracts/mixins';
+@use "../../styles/abstracts/mixins";
+@use "../../styles/colors";
 
 .container {
     text-align: center;
     display: grid;
     place-content: center;
     min-height: 100vh;
+
+    h2 {
+        margin-bottom: 2rem;
+    }
+}
+
+.card {
+    margin: 5rem 0
+}
+
+.thumb {
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        color: colors.$primary;
+    }
+}
+
+.logo {
+    height: 10rem;
+    width: 50rem;
+    display: grid;
+    place-items: center;
+    margin-bottom: 3rem;
+
+    svg {
+        max-height: 100%;
+        max-width: 100%;
+    }
 }

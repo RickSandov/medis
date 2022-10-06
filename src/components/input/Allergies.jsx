@@ -15,6 +15,8 @@ export const Allergies = () => {
 
   const handleAddAllergie = (e) => {
     if (e.keyCode === 32 || e.keyCode === 13) {
+      e.preventDefault();
+      if(field.value === "") return;
       helpers.setValue([...field.value, activeAllergie]);
       setActiveAllergie("");
     }

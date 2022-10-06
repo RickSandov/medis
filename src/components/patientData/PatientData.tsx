@@ -4,6 +4,7 @@ import { Card, PatientPersonalForm } from "components";
 import styles from "./PatientData.module.scss";
 
 export const PatientData = () => {
+
   return (
     <div className={styles.container}>
       <div className={styles.information}>
@@ -22,7 +23,7 @@ export const PatientData = () => {
         <Card>
           <>
             <h3>Información personal</h3>
-            <PatientPersonalForm />
+            <PatientPersonalForm isRegistering={true} />
           </>
         </Card>
       </div>

@@ -9,29 +9,40 @@ import { typesRegex } from "types";
 import { useRouter } from "next/router";
 import { Input, FormButton, FormikForm } from "components";
 import { MedicalForm, PersonalForm } from "./Forms";
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import {
   startUploadMedicalData,
   startSignUp,
 } from "../../store/patient/thunks";
 import { Dispatch } from "redux";
+import { startUpdatingBasicData } from "../../store/patient/thunks";
 
-export const PatientPersonalForm = () => {
+export const preventSendOnEnter = (keyEvent: any) => {
+  if ((keyEvent.charCode || keyEvent.keyCode) === 13) {
+    keyEvent.preventDefault();
+  }
+};
+
+export const PatientPersonalForm = ({
+  isRegistering,
+  initialValues,
+}: {
+  isRegistering: boolean;
+  initialValues?: BasicInitialValues;
+}) => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const formData: BasicInitialValues = {
-    fullName: "Ángel Eduardo Cruz García",
-    curp: "CUGA010714HDGRRNA3",
-    birthGender: "Masculino",
-    birthDate: "14 de julio del 2001",
-    birthCountry: "Mexico",
-    birthState: "Durango",
-    residenceCountry: "Durango, dgo.",
-    phoneNumber: "618 123 4567",
+  const formData: BasicInitialValues = initialValues || {
+    curp: "",
+    birthGender: "",
+    birthDate: "",
+    birthCountry: "",
+    birthState: "",
+    residenceCountry: "",
+    phoneNumber: "",
   };
 
   const formSchema = Yup.object().shape({
-    fullName: Yup.string().required("El nombre es requerido").max(30),
     curp: Yup.string()
       .min(18, "Introduzca 18 caracteres.")
       .matches(typesRegex.curp, "Curp no válida")
@@ -43,11 +54,17 @@ export const PatientPersonalForm = () => {
     residenceCountry: Yup.string().required(
       "El país de residencia es requerido"
     ),
+    phoneNumber: Yup.string()
+      .matches(/^\d+$/, "Número no válido")
+      .min(10, "Introduzca 10 dígitos.")
+      .max(10, "Introduzca solo 10 dígitos.")
+      .required("El número de teléfono es requerido"),
   });
 
   const handleSendData = (values: BasicInitialValues) => {
-    console.log(values);
-    dispatch(startSignUp(values, router));
+    isRegistering
+      ? dispatch(startSignUp(values, router))
+      : dispatch(startUpdatingBasicData(values));
   };
 
   return (
@@ -55,6 +72,7 @@ export const PatientPersonalForm = () => {
       initialValues={formData}
       validationSchema={formSchema}
       onSubmit={handleSendData}
+      enableReinitialize={true}
     >
       <PersonalForm />
     </FormikForm>
@@ -63,7 +81,8 @@ export const PatientPersonalForm = () => {
 
 export const PatientMedicalForm = () => {
   const dispatch = useAppDispatch();
-  const formData: MedicalInitialValues = {
+  const { patientMedicalData } = useAppSelector((state) => state.patient);
+  const formData: MedicalInitialValues = patientMedicalData || {
     diabetes: true,
     hypertension: true,
     heartDisease: true,
@@ -86,8 +105,8 @@ export const PatientMedicalForm = () => {
     weight: 70,
     height: 170,
     bloodType: "O+",
-    visionProblems: true,
-    hearingProblems: true,
+    visionProblems: "1",
+    hearingProblems: "1",
   };
 
   const formSchema = Yup.object().shape({
@@ -114,6 +133,7 @@ export const PatientMedicalForm = () => {
       validationSchema={formSchema}
       onSubmit={handleSendData}
       enableReinitialize={true}
+      onKeyDown={preventSendOnEnter}
     >
       <MedicalForm />
     </FormikForm>

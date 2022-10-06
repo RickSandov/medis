@@ -4,11 +4,12 @@ import styles from './Card.module.scss';
 
 interface Props {
     children: React.ReactNode;
+    className?: string;
 }
 
-export const Card: FC<Props> = ({ children }) => {
+export const Card: FC<Props> = ({ children, className = ''}) => {
     return (
-        <div className={styles.card} >
+        <div className={`${styles.card} ${className}`} >
             {children}
         </div>
     )

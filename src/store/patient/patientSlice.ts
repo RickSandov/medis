@@ -14,13 +14,13 @@ interface PatientState {
 const initialState: PatientState = {
   profilePicture: "",
   patientBasicData: {
-    fullName: "",
     curp: "",
     birthGender: "",
     birthDate: "",
     birthCountry: "",
     birthState: "",
     residenceCountry: "",
+    phoneNumber: "",
   },
   patientMedicalData: {
     diabetes: false,
@@ -36,8 +36,8 @@ const initialState: PatientState = {
     weight: 0,
     height: 0,
     bloodType: "",
-    visionProblems: false,
-    hearingProblems: false,
+    visionProblems: "0",
+    hearingProblems: "0",
     medicines: [],
     allergies: [],
   },

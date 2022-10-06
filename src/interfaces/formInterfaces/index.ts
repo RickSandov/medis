@@ -11,7 +11,6 @@ export type SignUpInitialValues = {
 };
 
 export type BasicInitialValues = {
-  fullName: string;
   curp: string;
   birthGender: string;
   birthDate: string;
@@ -36,8 +35,8 @@ export type MedicalInitialValues = {
   weight: number;
   height: number;
   bloodType: string;
-  visionProblems: boolean;
-  hearingProblems: boolean;
+  visionProblems: string;
+  hearingProblems: string;
   medicines: medicines[];
   allergies: string[];
 };

@@ -3,19 +3,23 @@ import { createSlice } from "@reduxjs/toolkit";
 interface AuthState {
   data: {
     email: string;
+    fullName: string;
     password: string;
     jwt: string;
     loggedIn: boolean;
+    id: number | null;
   };
   isLoading: boolean;
 }
 
 const initialState: AuthState = {
   data: {
+    fullName: "",
     email: "",
     password: "",
     jwt: "",
     loggedIn: false,
+    id: null,
   },
   isLoading: false,
 };
